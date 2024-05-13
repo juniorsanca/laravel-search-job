@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pixel positions</title>
     <link
-        href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&display=swap"
         rel="stylesheet"/>
     @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
@@ -15,7 +15,7 @@
         <nav class="flex justify-between items-center py-4 border-b border-white/10">
             <div>
                 <a href="/">
-                    <img src="{{ Vite::asset("resources/images/logo.png")}}" alt="logo" width="20px">
+                    <img src="{{ Vite::asset("resources/images/logo.png")}}" alt="logo" width="25px">
                 </a>
             </div>
 
