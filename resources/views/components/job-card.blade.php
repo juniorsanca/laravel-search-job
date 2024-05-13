@@ -13,6 +13,6 @@
 
         </div>
 
-        <img src="http://placehold.it/42/42" alt="" class="rounded-xl">
+        <x-employer-logo :width="42"/>
     </div>
 </div>
