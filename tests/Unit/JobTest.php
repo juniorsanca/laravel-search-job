@@ -12,7 +12,7 @@ use App\Models\Job;
 // });
 // it('', function () {});
 
-test('', function() {
+test('belongs to an employer', function() {
 // AAA -> Arrange, Act, Assert
     $employer = Employer::factory()->create();
     $job = Job::factory()->create([
@@ -23,4 +23,10 @@ test('', function() {
     expect($job->employer->is($employer))->toBeTrue();
 });
 
+test('can have tags', function () {
 
+    $job = Job::factory()->create();
+    $job->tag('Frontend');
+
+    expect($job->tags)->toHaveCount(1);
+});
