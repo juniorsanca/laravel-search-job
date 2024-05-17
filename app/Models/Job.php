@@ -27,5 +27,3 @@ class Job extends Model
         return $this->belongsTo(Employer::class);
     }
 }
-
-// laracast stopped at 26:00 min
