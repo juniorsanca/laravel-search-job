@@ -4,19 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Password;
-use phpDocumentor\Reflection\File;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rules\Password;
+// use Illuminate\Support\Facades\File;
 
 class RegisterUserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
     /**
      * Show the form for creating a new resource.
      */
@@ -40,15 +33,23 @@ class RegisterUserController extends Controller
         ]);
 
         $employerAttributes = $request->validate([
-            'name' => ['required'],
-            'logo' => ['required', File::types(['png', 'jpg', 'webp'])],
+            'employer' => ['required'],
+            'logo' => ['required', 'mimes:png,jpg,webp', 'max:2048'],
+
+            // 'logo' => ['required', File::types(['png', 'jpg', 'webp'])],
         ]);
 
         $user = User::create($userAttributes);
 
-        $request->logo->store('logos');
+        $logoPath = $request->logo->store('logos');
 
-        $user->employer()->create($employerAttributes);
+        $user->employer()->create([
+            'name' => $employerAttributes['employer'],
+            'logo' => $logoPath
+        ]);
+
+        Auth::login($user);
+        return redirect('/');
     }
 
     /**
