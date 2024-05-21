@@ -13,4 +13,4 @@
         <x-forms.input label="Employer Logo" name="logo" type="file" />
         <x-forms.button>Create account</x-forms.button>
     </x-forms.form>
-</x-layout>®
+</x-layout>
